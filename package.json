@@ -1,0 +1,68 @@
+{
+  "name": "opensearch-client",
+  "version": "1.0.0",
+  "description": "Client to work with aws opensearch",
+  "author": "handeye1512@gmail.com",
+  "main": "dist/index.js",
+  "maintainers": [
+    "handeye1512@gmail.com"
+  ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "type": "commonjs",
+  "types": "dist/index.d.ts",
+  "license": "UNLICENSED",
+  "scripts": {
+    "pack:local": "npm run build && npm pack --pack-destination ~/Projects/packages",
+    "build": "rm -rf dist && tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "node dist/main.js",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config src/test/jest-e2e.json"
+  },
+  "dependencies": {
+    "@nestjs/common": "^10.3.3",
+    "@opensearch-project/opensearch": "^2.5.0"
+  },
+  "devDependencies": {
+    "@nestjs/core": "^10.3.3",
+    "@types/node": "^20.3.1",
+    "@typescript-eslint/eslint-plugin": "^5.59.11",
+    "@typescript-eslint/parser": "^5.59.11",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.42.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "jest": "^29.7.0",
+    "prettier": "^2.8.8",
+    "reflect-metadata": "^0.1.13",
+    "source-map-support": "^0.5.21",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.3.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "./",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}
